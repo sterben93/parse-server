@@ -1,0 +1,13 @@
+{
+    "compileOnSave": true,
+    "compilerOptions": {
+        "module": "commonjs",
+        "outDir": "dist/",
+        "target": "es6",
+        "watch": true,
+        "removeComments": true
+    },
+    "files": [
+        "index.ts"
+    ]
+}
