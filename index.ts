@@ -1,5 +1,9 @@
 /// <reference path="typings/globals/node/index.d.ts" />
 /// <reference path="typings/globals/express/index.d.ts" />
+
+import { Express }  from 'express';
+import * as http from "http";
+
 var express = require('express');
 var ParseServer = require('parse-server').ParseServer;
 var ParseDashboard = require('parse-dashboard');
@@ -66,9 +70,10 @@ var dashboard = new ParseDashboard({
     ]
 }, allowInsecureHTTP);
 
-var app = new express();
+var app:Express = new express();
 app.use('/parse',server);
 app.use('/parse2',server);
 app.use('/dashboard',dashboard);
-var httpServer = require('http').createServer(app);
-httpServer.listen(port);
+
+var httpserver=http;
+httpserver.createServer(app).listen(port);

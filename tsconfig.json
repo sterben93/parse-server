@@ -3,11 +3,16 @@
     "compilerOptions": {
         "module": "commonjs",
         "outDir": "dist/",
-        "target": "es6",
+        "target": "es5",
         "watch": true,
-        "removeComments": true
+        "removeComments": true,
+        "sourceMap": true,
+        "moduleResolution": "node"
     },
     "files": [
         "index.ts"
+    ],
+    "exclude": [
+        "node-modules"
     ]
 }

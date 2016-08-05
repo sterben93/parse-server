@@ -1,3 +1,5 @@
+"use strict";
+var http = require("http");
 var express = require('express');
 var ParseServer = require('parse-server').ParseServer;
 var ParseDashboard = require('parse-dashboard');
@@ -63,5 +65,6 @@ var app = new express();
 app.use('/parse', server);
 app.use('/parse2', server);
 app.use('/dashboard', dashboard);
-var httpServer = require('http').createServer(app);
-httpServer.listen(port);
+var httpserver = http;
+httpserver.createServer(app).listen(port);
+//# sourceMappingURL=index.js.map
