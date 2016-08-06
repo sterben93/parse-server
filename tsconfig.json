@@ -5,7 +5,7 @@
         "outDir": "dist/",
         "target": "es5",
         "watch": true,
-        "removeComments": true,
+        "removeComments": false,
         "sourceMap": true,
         "moduleResolution": "node"
     },

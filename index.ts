@@ -1,17 +1,15 @@
 /// <reference path="typings/globals/node/index.d.ts" />
 /// <reference path="typings/globals/express/index.d.ts" />
-
-import { Express }  from 'express';
+import * as express  from 'express';
 import * as http from "http";
 
-var express = require('express');
 var ParseServer = require('parse-server').ParseServer;
 var ParseDashboard = require('parse-dashboard');
 
-var urlMongo = "localhost";
-var url = "http://localhost";
-var port = 4042;
-var allowInsecureHTTP = true;
+var urlMongo:string = "localhost";
+var url:string = "http://localhost";
+var port:number = 4042;
+var allowInsecureHTTP:boolean = true;
 
 var server = new ParseServer({
     databaseURI: 'mongodb://'+urlMongo+':27017/notitec',
@@ -70,10 +68,11 @@ var dashboard = new ParseDashboard({
     ]
 }, allowInsecureHTTP);
 
-var app:Express = new express();
+
+var app:express.Express = express();
 app.use('/parse',server);
 app.use('/parse2',server);
 app.use('/dashboard',dashboard);
 
-var httpserver=http;
+var httpserver =http;
 httpserver.createServer(app).listen(port);

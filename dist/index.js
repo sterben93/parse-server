@@ -1,6 +1,6 @@
 "use strict";
-var http = require("http");
 var express = require('express');
+var http = require("http");
 var ParseServer = require('parse-server').ParseServer;
 var ParseDashboard = require('parse-dashboard');
 var urlMongo = "localhost";
@@ -61,7 +61,7 @@ var dashboard = new ParseDashboard({
         }
     ]
 }, allowInsecureHTTP);
-var app = new express();
+var app = express();
 app.use('/parse', server);
 app.use('/parse2', server);
 app.use('/dashboard', dashboard);
