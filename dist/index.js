@@ -1,7 +1,10 @@
 "use strict";
+/// <reference path="typings/globals/node/index.d.ts" />
+/// <reference path="typings/globals/express/index.d.ts" />
+/// <reference path="typings/globals/parse-server/index.d.ts" />
 var express = require('express');
 var http = require("http");
-var ParseServer = require('parse-server').ParseServer;
+var ParseServer = require('parse-server');
 var ParseDashboard = require('parse-dashboard');
 var urlMongo = "localhost";
 var url = "http://localhost";
@@ -66,5 +69,5 @@ app.use('/parse', server);
 app.use('/parse2', server);
 app.use('/dashboard', dashboard);
 var httpserver = http;
-httpserver.createServer(app).listen(port);
+var servicio = httpserver.createServer(app).listen(port);
 //# sourceMappingURL=index.js.map

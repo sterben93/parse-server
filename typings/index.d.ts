@@ -4,3 +4,4 @@
 /// <reference path="globals/node/index.d.ts" />
 /// <reference path="globals/parse/index.d.ts" />
 /// <reference path="globals/serve-static/index.d.ts" />
+/// <reference path="globals/parse-server/index.d.ts" />

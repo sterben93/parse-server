@@ -1,21 +1,22 @@
 /// <reference path="typings/globals/node/index.d.ts" />
 /// <reference path="typings/globals/express/index.d.ts" />
+/// <reference path="typings/globals/parse-server/index.d.ts" />
 import * as express  from 'express';
 import * as http from "http";
+import * as ParseServer from 'parse-server';
 
-var ParseServer = require('parse-server').ParseServer;
 var ParseDashboard = require('parse-dashboard');
 
-var urlMongo:string = "localhost";
-var url:string = "http://localhost";
-var port:number = 4042;
-var allowInsecureHTTP:boolean = true;
+var urlMongo: string = "localhost";
+var url: string = "http://localhost";
+var port: number = 4042;
+var allowInsecureHTTP: boolean = true;
 
 var server = new ParseServer({
-    databaseURI: 'mongodb://'+urlMongo+':27017/notitec',
+    databaseURI: 'mongodb://' + urlMongo + ':27017/notitec',
     appId: "AppNotItver",
     masterKey: 'E12020847',
-    serverURL: url+':'+port,
+    serverURL: url + ':' + port,
     push: {
         android: {
             senderId: '730543388104',
@@ -24,11 +25,12 @@ var server = new ParseServer({
     }
 });
 
+
 var server2 = new ParseServer({
-    databaseURI: 'mongodb://'+urlMongo+':27017/parse',
+    databaseURI: 'mongodb://' + urlMongo + ':27017/parse',
     appId: "AppNotItver2",
     masterKey: 'E12020848',
-    serverURL: url+':'+port,
+    serverURL: url + ':' + port,
     push: {
         android: {
             senderId: '730543388104',
@@ -40,13 +42,13 @@ var server2 = new ParseServer({
 var dashboard = new ParseDashboard({
     "apps": [
         {
-            "serverURL": url+":"+port+"/parse",
+            "serverURL": url + ":" + port + "/parse",
             "appId": "AppNotItver",
             "masterKey": "E12020847",
             "appName": "Nombre"
         },
         {
-            "serverURL": url+":"+port+"/parse2",
+            "serverURL": url + ":" + port + "/parse2",
             "appId": "AppNotItver2",
             "masterKey": "E12020848",
             "appName": "Nombre2"
@@ -69,10 +71,10 @@ var dashboard = new ParseDashboard({
 }, allowInsecureHTTP);
 
 
-var app:express.Express = express();
-app.use('/parse',server);
-app.use('/parse2',server);
-app.use('/dashboard',dashboard);
+var app: express.Express = express();
+app.use('/parse', server);
+app.use('/parse2', server);
+app.use('/dashboard', dashboard);
 
-var httpserver =http;
-httpserver.createServer(app).listen(port);
+var httpserver = http;
+var servicio = httpserver.createServer(app).listen(port);
